@@ -1,0 +1,27 @@
+<head>
+  <title>Meteor Blaze templates share data</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> Parent}}
+</body>
+
+<template name="Parent">
+    <h2>Parent template</h2>
+    <p>Shared variable value: {{sharedVar.get}}</p>
+    {{> Child1 sharedVar1=sharedVar}}
+    {{> Child2 sharedVar2=sharedVar}}
+</template>
+
+<template name="Child1">
+    <h2>Child 1 template</h2>
+    <p>Shared variable myValue: {{myValue}}</p>
+</template>
+
+<template name="Child2">
+    <h2>Child 2 template</h2>
+    <p>Shared variable myValue: {{myValue}}</p>
+    <p>Action: increment the value of the shared variable: <button id="increment">Increment Shared variable value</button></p>
+</template>
